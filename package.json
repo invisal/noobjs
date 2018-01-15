@@ -1,0 +1,20 @@
+{
+  "name": "noobjs",
+  "version": "1.0.0",
+  "description": "Algorithm Toolsets for Javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "algorithm"
+  ],
+  "author": "Visal .In",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^22.0.6"
+  },
+  "dependencies": {
+    "mathjs": "^3.19.0"
+  }
+}
