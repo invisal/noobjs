@@ -1,4 +1,5 @@
-var { PriorityQueue } = require('../../index.js').Collections;
+"use strict";
+var PriorityQueue = require('../collections/PriorityQueue');
 
 function KNeighborsBruteSelector(x, y)
 {

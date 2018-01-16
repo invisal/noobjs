@@ -1,29 +1,38 @@
 "use strict"
 
-class KNeighborsClassifier
-{
-    constructor({
-        neighbors = 5,
-        algorithm = "brute",
-        weights = "uniform"
-    } = {}) {
-        this.__neighbors = neighbors;
-        this.__algorithm = algorithm;
-        this.__weights = weights;
-    }
+var KNeighborsBruteSelector = require('./KNeighborsBruteSelector');
+var KNeighborsVoting = require('./KNeighborsVoting');
 
-    fit(x, y) {
-        this.__x = x;
-        this.__y = y;
-    }
+function KNeighborsClassifier({
+    neighbors = 5,
+    algorithm = "brute",
+    weights = "uniform"
+} = {}) {
+    
+    // private members
+    var selector = null;
+    var voter = null;
 
-    predict(x) {
+    // public methods
+    this.fit = function(x, y) {
+        selector = new KNeighborsBruteSelector(x, y);
+        voter = new KNeighborsVoting(weights);
+    };
+
+    this.predict = function(x) {
+        var answers = [];
+
+        for(var i = 0; i < x.length; i++) {
+            var [cls_list, dist_list] = selector.get(x[i], neighbors);
+            answers.push(voter.get(cls_list, dist_list));
+        }
+        
+        return answers;
+    };
+
+    this.score = function(x, y) {
         return null;
-    }
-
-    score(x, y) {
-        return null;
-    }
+    };
 }
 
 module.exports = KNeighborsClassifier;
