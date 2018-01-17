@@ -1,4 +1,5 @@
 var math = require('mathjs');
+var { mat_multiply } = require('../numbers/LinearAlgebra');
 
 class LinearRegression
 {
@@ -12,9 +13,9 @@ class LinearRegression
 
         var xt = math.transpose(x);
 
-        var b = math.divide(1, math.multiply(xt, x));
-        b = math.multiply(b, xt);
-        b = math.multiply(b, y)
+        var b = math.divide(1, mat_multiply(xt, x));
+        b = mat_multiply(b, xt);
+        b = mat_multiply(b, y)
 
         this.weight = b;
     }
@@ -27,7 +28,7 @@ class LinearRegression
             x[i].push(1);
         }
 
-        return math.multiply(x, this.weight);
+        return mat_multiply(x, this.weight);
     }
 
     score(x, y) {
