@@ -1,5 +1,7 @@
 # NoobJS
 
+[![Build Status](https://travis-ci.org/invisal/noobjs.svg?branch=master)](https://travis-ci.org/invisal/noobjs)
+
 NoobJS contains Javascript implementations of many algorithms.
 
 ### Examples
@@ -39,4 +41,24 @@ p.push(6);
 console.log(p.pop());  // 6
 console.log(p.pop());  // 7
 console.log(p.pop());  // 8
+```
+
+Using NoobJS to solve linear system of equations
+
+```javascript
+var { LinearAlgebra } = noobjs.Numbers;
+
+//  x + 2y -  z = 2
+// 2x + 2y + 2z = 12
+//  x -  y + 2z = 5
+var a = [
+  [ 1,  2,  -1],
+  [ 2,  2,   2],
+  [ 1, -1,   2]
+];
+
+var b = [ [2], [12], [5] ];
+
+console.log(LinearAlgebra.mat_multiply(LinearAlgebra.mat_inverse(a), b));
+// [ 1.00, 2.00, 3.00 ]
 ```
