@@ -34,3 +34,41 @@ test('matrix multiplication', () => {
 
     expect(LinearAlgebra.mat_multiply(a, b)).toEqual(c);
 });
+
+test('matrix transpose', () => {
+
+    let a = [
+        [3, 0, 2, 7, 3, 5, 4],
+        [0, 6, 4, 2, 5, 5, 7],
+        [6, 6, 8, 3, 5, 6, 8],
+        [2, 9, 0, 4, 8, 2, 1]
+    ];
+
+    let b = [
+        [3, 0, 6, 2],
+        [0, 6, 6, 9],
+        [2, 4, 8, 0],
+        [7, 2, 3, 4],
+        [3, 5, 5, 8],
+        [5, 5, 6, 2],
+        [4, 7, 8, 1]
+    ];
+
+    expect(LinearAlgebra.mat_transpose(a)).toEqual(b);
+
+});
+
+
+test('matrix inverse', () => {
+
+    let a = [[3, 0, 2], [2, 0, -2], [0, 1, 1]];
+    let b = [[0.2, 0.2, 0], [-0.2, 0.3, 1], [0.2, -0.3, 0]];
+    let c = LinearAlgebra.mat_inverse(a);
+
+    for(var i = 0; i < 3; i++) {
+        for(var j = 0; j < 3; j++) {
+            expect(c[i][j]).toBeCloseTo(b[i][j]);
+        }
+    }
+    
+})
