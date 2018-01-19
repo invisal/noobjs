@@ -22,7 +22,8 @@ function sieve_prime(n) {
 
 function is_prime(n) {
     if (n<2) return false;
-    for (var i=2; i<n; i++) {
+    var sqrt_n = Math.sqrt(n);
+    for (var i=2; i<=sqrt_n; i++) {
         if (n % i == 0) {
             return false;
         }
@@ -34,3 +35,5 @@ module.exports = {
     sieve_prime,
     is_prime
 };
+
+
