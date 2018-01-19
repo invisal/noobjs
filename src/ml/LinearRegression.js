@@ -33,10 +33,22 @@ class LinearRegression
 
     score(x, y) {
         var predicted = this.predict(x);
-        var error = math.sum(math.square(math.subtract(predicted, y)));
-        var mean = math.mean(y);
-        var error_mean = math.sum(math.square(math.subtract(predicted, mean)));
+        var error = 0;
+        var mean = 0;
+        var error_mean = 0;
 
+        for(let i = 0; i < y.length; i++) {
+            error += Math.pow(predicted[i][0] - y[i][0], 2);
+            mean += y[i][0];
+        }
+
+        mean /= y.length;
+
+        for(let i = 0; i < y.length; i++) {
+            error_mean += Math.pow(predicted[i][0] - mean, 2);
+        }
+
+        console.log(mean);
         return 1 - error / error_mean;
     }
 
