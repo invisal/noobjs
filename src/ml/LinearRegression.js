@@ -1,4 +1,3 @@
-var math = require('mathjs');
 var { mat_multiply,  mat_transpose, mat_inverse } = require('../numbers/LinearAlgebra');
 
 class LinearRegression
@@ -48,7 +47,6 @@ class LinearRegression
             error_mean += Math.pow(predicted[i][0] - mean, 2);
         }
 
-        console.log(mean);
         return 1 - error / error_mean;
     }
 
