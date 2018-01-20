@@ -1,3 +1,4 @@
 module.exports = {
-    LinearAlgebra: require('./LinearAlgebra')
+    LinearAlgebra: require('./LinearAlgebra'),
+    BigNumber: require('./BigNumber')
 }
