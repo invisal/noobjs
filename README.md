@@ -4,7 +4,31 @@
 
 NoobJS contains Javascript implementations of many algorithms.
 
-### Examples
+## Algorithms Roadmap
+#### Machine Learning
+| Regression | Classifier | Cluster |
+| ---- | --- | --- |
+| ✔ Linear Regression | ✔ KNN Classifier | k-mean Clustering |
+| | KNN using kd-tree | |
+| | KNN using ball-tree | |
+| | Gaussian Naive Bayes Classifier | | 
+
+#### Math and Numbers
+| Matrix | BigNumber | Prime |
+| ---- | --- | --- |
+| ✔ Matrix Multiplication (Brute Force) | ✔ Long Addition | Primity Test (Brute Force) |
+| ✔ Matrix Transpose | Long Subtraction | Sieve of Eranthoses |
+| ✔ Matrix Inverse (Gaussian Elimination) | ✔ Long Multiplication | Pollard's rho algorithm |
+|  | Long Division ||
+
+#### Data Structure
+| Basic | Graph |
+| ---- | --- |
+| ✔ Queue | Depth-First Search |
+| ✔ Stack | Breadth-First search |
+| ✔ Priority Queue (Binary Heap) | Prim's algorithm |
+
+## Examples
 
 Using Linear Regression
 
