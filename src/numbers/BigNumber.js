@@ -23,23 +23,26 @@ class BigNumber
         let allow_trimming_zero = true;
         let tmp;
 
-        for(let i = r.data.length - 1; i > 0; i--) {
+        // showing the integer part
+        for(let i = r.data.length - 1; i >= r.point; i--) {
             if (allow_trimming_zero && r.data[i] === 0) continue;
-            if (i === r.point - 1) result += '.';
-
             allow_trimming_zero = false;
 
             tmp = r.data[i].toString();
             result += '00000000'.substring(0, 7 - tmp.length) + tmp;
         }
+        result = result.replace(/^[0]+/g, '');
 
-        tmp = r.data[0].toString();
-        result += '00000000'.substring(0, 7 - tmp.length) + tmp;
-        result  = result.replace(/^[0]+/g, '');
+        if (result === '') result = '0';
+        if (r.point > 0) result += '.';
 
+        for(let i = r.point - 1; i >= 0; i--) {
+            tmp = r.data[i].toString();
+            result += '00000000'.substring(0, 7 - tmp.length) + tmp;
+        }
         if (r.point > 0) result = result.replace(/[0]+$/g, '');
 
-        return result === '' ? '0' : result;
+        return result;
     }
 
     add(b) 

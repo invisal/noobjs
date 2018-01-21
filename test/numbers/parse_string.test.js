@@ -44,4 +44,16 @@ test('test parse string into big number', () => {
         sign: 1
     });
 
+    expect(parse_string('0.1')).toEqual({
+        data: [1000000],
+        point: 1,
+        sign: 0
+    });
+
+    expect(parse_string('0.00000000001')).toEqual({
+        data: [1000, 0],
+        point: 2,
+        sign: 0
+    });
+
 });

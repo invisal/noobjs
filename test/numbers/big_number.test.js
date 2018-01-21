@@ -13,6 +13,12 @@ test('test initialize big number', () => {
 
     b = new BigNumber('9995631239.642399923');
     expect(b.toString()).toBe('9995631239.642399923');
+
+    b = new BigNumber('0.1');
+    expect(b.toString()).toBe('0.1');
+
+    b = new BigNumber('0.00000000021');
+    expect(b.toString()).toBe('0.00000000021');
 });
 
 test('test add positive big number', () => {
@@ -35,8 +41,14 @@ test('test multiply big number', () => {
     c = a.multiply(b);
     expect(c.toString()).toBe('29321341108209728304299095051101066');
 
+    a = new BigNumber('2423252642366321');
+    b = new BigNumber('0.0000001');
+    c = a.multiply(b);
+    expect(c.toString()).toBe('242325264.2366321');
+
     a = new BigNumber('29321341108209728304299.3435464');
     b = new BigNumber('92909728304299.213469');
     c = a.multiply(b);
-    expect(c.toString()).toBe('2724237835881445460790830381167056711.5025411064616')
+    expect(c.toString()).toBe('2724237835881445460790830381167056711.5025411064616');
+    
 });
