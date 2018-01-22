@@ -38,8 +38,8 @@ function is_prime(n) {
     if (n % 2 == 0) return false;
     if (n % 3 == 0) return false;
 
-    var sqrt_n = Math.sqrt(n);
-    for (var i = 6; i-1 <= sqrt_n; i += 6) {
+    var sqrt_n = Math.sqrt(n) + 1;
+    for (var i = 6; i <= sqrt_n; i += 6) {
         if (n % (i-1) == 0) {
             return false;
         }
