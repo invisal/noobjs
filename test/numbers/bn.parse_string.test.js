@@ -56,4 +56,21 @@ test('test parse string into big number', () => {
         sign: 0
     });
 
+    expect(parse_string('5321.00000010000000000000')).toEqual({
+        data: [1, 5321],
+        point: 1,
+        sign: 0
+    });
+
+    expect(parse_string('-0')).toEqual({
+        data: [0],
+        point: 0,
+        sign: 0
+    });
+
+    expect(parse_string('0')).toEqual({
+        data: [0],
+        point: 0,
+        sign: 0
+    });
 });

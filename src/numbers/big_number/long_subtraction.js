@@ -1,7 +1,7 @@
-var { greater } = require('.comparison');
+var { greater } = require('./comparison');
 
 /**
- * Subtract two positive a and b where a > b
+ * Subtract two positive a and b
  * 
  * @param {object} a 
  * @param {object} b
@@ -30,7 +30,7 @@ function long_subtraction(a, b)
         max_point = b.point;
     }
 
-    let size = max_point + Math.max(a.data.length - a.point, b.data.length - b.point) + 1;
+    let size = max_point + Math.max(a.data.length - a.point, b.data.length - b.point);
     let c = { data: new Array(size).fill(0), sign: sign, point: max_point };
 
     for(i = 0; i < a.data.length; i++, ai++) c.data[ai]  = a.data[i];
@@ -45,7 +45,17 @@ function long_subtraction(a, b)
         }
     }
 
+    while(c.point > 0) {
+        if (c.data[0] === 0) { c.data.shift(); c.point--; continue; }
+        else break;
+    }
+
+    while(c.data.length - c.point > 0) {
+        if (c.data[c.data.length - 1] === 0) c.data.pop();
+        else break;
+    }
+
     return c;
 }
 
-module.exports = long_addition;
+module.exports = long_subtraction;

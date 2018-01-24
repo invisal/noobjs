@@ -1,5 +1,6 @@
 var parse_string = require('./big_number/parse_string');
 var long_addition = require('./big_number/long_addition');
+var long_subtraction = require('./big_number/long_subtraction');
 var long_multiplication = require('./big_number/long_multiplication');
 
 class BigNumber 
@@ -41,14 +42,40 @@ class BigNumber
             result += '00000000'.substring(0, 7 - tmp.length) + tmp;
         }
         if (r.point > 0) result = result.replace(/[0]+$/g, '');
+        if (r.sign === 1) result = '-' + result;
 
         return result;
     }
 
     add(b) 
     {
-        let c = long_addition(this.r, b.r);
-        return new BigNumber(c);
+        // For a + b or -a + -b
+        if (this.r.sign === b.r.sign)
+            return new BigNumber(long_addition(this.r, b.r));
+        
+        // For -a + b, it is the same as b - a
+        if (this.r.sign === 1)
+            return new BigNumber(long_subtraction(b.r, this.r));
+
+        // For a + -b, it is the same as a - b
+        return new BigNumber(long_subtraction(this.r, b.r));
+    }
+
+    subtract(b)
+    {
+        // For a - b
+        if (this.r.sign === 0 && b.r.sign === 0)
+            return new BigNumber(long_subtraction(this.r, b.r));
+        
+        // For (-a) - (-b), it is same as b - a
+        if (this.r.sign === 1 && b.r.sign === 1)
+            return new BigNumber(long_subtraction(b, this.r));
+
+        // For -a - b, it is same as -a + -b
+        // For a - (-b), it is same as a + b
+        return new BigNumber(long_addition(this.r, b.r));
+
+        
     }
 
     multiply(b) {

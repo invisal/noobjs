@@ -9,61 +9,45 @@
 function long_addition(a, b)
 {
     const BASE = 10000000;
-    let i = 0, j = 0, k = 0, carry = 0;
+    let max_point, ai, bi, i, carry = 0; 
 
-    // {a} must be the number with longer fractional part
-    if (b.point > a.point) {
-        let t = b; b = a; a = t;
+    if (a.point > b.point) {
+        ai = 0;
+        bi = a.point - b.point;
+        max_point = a.point;
+    } else {
+        ai = b.point - a.point;
+        bi = 0;
+        max_point = b.point;
     }
 
-    // Create c object to store the result
-    let c = { 
-        data: new Array( a.point + Math.max(a.data.length - a.point, b.data.length - b.point) + 1 ), 
-        sign: a.sign, 
-        point: a.point
-    };
+    let size = max_point + Math.max(a.data.length - a.point, b.data.length - b.point) + 1;
+    let c = { data: new Array(size).fill(0), sign: a.sign, point: max_point };
 
-    // Add the fractional part first
-    let fractional_length_diff = a.point - b.point;
-    for(j = 0; j < fractional_length_diff; j++) c[i++] = a.data[j]
-
-    for(; j < a.point; j++, k++) {
-        carry += a.data[j] + b.data[k] - BASE;
-        if (carry < 0) { // no carry
-            c.data[i++] = carry + BASE; carry = 0;
-        } else { // has carry
-            c.data[i++] = carry; carry = 1;
+    for(i = 0; i < a.data.length; i++, ai++) c.data[ai]  = a.data[i];
+    for(i = 0; i < b.data.length; i++, bi++) c.data[bi] += b.data[i];
+    for(i = 0; i < size; i++) {
+        c.data[i] += carry;
+        if (c.data[i] >= BASE) {
+            c.data[i] -= BASE;
+            carry = 1;
+        } else {
+            carry = 0;
         }
     }
 
-    // Add the integer part
-    // {a} must the be number with the longer integer length
-    if (b.data.length - b.point > a.point.length - a.point) {
-        let t = b; b = a; a = t;
-        t = j; j = k; k = t;
+    // Trimming zero
+    while(c.point > 0) {
+        if (c.data[0] === 0) { c.data.shift(); c.point--; continue; }
+        else break;
     }
 
-    for(; k < b.data.length; k++, j++) {
-        carry += a.data[j] + b.data[k] - BASE;
-        if (carry < 0) { // no carry
-            c.data[i++] = carry + BASE; carry = 0;
-        } else { // has carry
-            c.data[i++] = carry; carry = 1;
-        }
+    while(c.data.length - c.point > 0) {
+        if (c.data[c.data.length - 1] === 0) c.data.pop();
+        else break;
     }
 
-    for(; j < a.data.length; j++) {
-        carry += a.data[j] - BASE;
-        if (carry < 0) { // no carry
-            c.data[i++] = carry + BASE; carry = 0;
-        } else { // has carry
-            c.data[i++] = carry; carry = 1;
-        }
-    }
-
-    c.data[i] = carry;
-    if (c.data[i] === 0) c.data.pop();
-
+    console.log(c);
     return c;
 }
 
