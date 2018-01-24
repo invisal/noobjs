@@ -51,6 +51,16 @@ test('test add two big numbers', () => {
     expect(c.toString()).toBe('0');
 });
 
+test('test subtract two big numbers', () => {
+
+    let a, b, c;
+
+    a = new BigNumber('2423252642366321');
+    b = new BigNumber('12099993453252674346');
+    c = a.subtract(b);
+    expect(c.toString()).toBe('-12097570200610308025');
+});
+
 test('test multiply big number', () => {
 
     let a, b, c;

@@ -46,6 +46,9 @@ function parse_string(str)
         r.data.push(tmp);
     }
 
+    if (r.data.length == 0)
+        r.data.push(0);
+
     if (r.data.length === 1 && r.data[0] === 0 && r.sign === 1)
         r.sign = 0;
 

@@ -47,7 +47,6 @@ function long_addition(a, b)
         else break;
     }
 
-    console.log(c);
     return c;
 }
 
