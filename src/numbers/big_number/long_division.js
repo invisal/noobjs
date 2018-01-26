@@ -74,6 +74,9 @@ function long_division(a, b)
 {
     let point = a.point - b.point;
     let v = b.data.slice();
+
+    // remove all the leading zero
+    while(v.length > 1 && v[v.length - 1] === 0) v.pop();
     v.reverse();
 
     // u must be longer or equal than v
@@ -99,11 +102,46 @@ function long_division(a, b)
     }
 
     let c = { data: q.reverse(), point: point, sign: (a.sign + b.sign) & 1 };
-    if (c.data.length < c.point) 
-        c.data.push(...new Array(c.point - c.data.length).fill(0));
-    
+    fix_invalid_point(c);
     trim_zeroes(c);
     return c;
 }
 
-module.exports = long_division;
+function long_single_division(a, b)
+{
+    let point = a.point - b.point;
+    let k = b.data[0];
+    let r = 0, t = 0;
+    let q = new Array(a.data.length);
+
+    for(let i = a.data.length - 1; i >= 0; i--) {
+        t = r * BASE + a.data[i];
+        q[i] = Math.floor(t / k);
+        r = t % k;
+    }
+
+    // If there is reminder left, let do a few more
+    for(let i = 0; i < 3 && r != 0; i++) {
+        t = r * BASE;
+        q.unshift(Math.floor(t / k));
+        r = t % k;
+        point++;
+    }
+
+    let c = { data: q, point: point, sign: (a.sign + b.sign) & 1 };
+    fix_invalid_point(c);
+
+    return c;
+}
+
+function fix_invalid_point(c)
+{
+    if (c.data.length < c.point) 
+        c.data.push(...new Array(c.point - c.data.length).fill(0));
+    if (c.point < 0) {
+        c.data.unshift(...new Array(-c.point).fill(0));
+        c.point = 0;
+    }
+}
+
+module.exports = { long_division, long_single_division };

@@ -1,6 +1,6 @@
 var BigNumber = require('../../src/numbers/BigNumber');
 
-test('test newton division', () => {
+test('test big number division', () => {
 
     let a = new BigNumber('189620700613125325959116839007395234454467716598457179234021');
     let b = new BigNumber('282174488599599500573849980909');
@@ -17,4 +17,13 @@ test('test newton division', () => {
     c = a.divide(b);
     expect(c.toString()).toBe('0.00000000000000002074722246773485207');
 
+    a = new BigNumber('236749577021714299526482794866680923306640');
+    b = new BigNumber('2');
+    c = a.divide(b);
+    expect(c.toString()).toBe('118374788510857149763241397433340461653320');
+
+    a = new BigNumber('236749577021714299526482794866680923306640');
+    b = new BigNumber('0.02');
+    c = a.divide(b);
+    expect(c.toString()).toBe('11837478851085714976324139743334046165332000');
 })

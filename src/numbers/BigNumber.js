@@ -2,7 +2,7 @@ var parse_string = require('./big_number/parse_string');
 var long_addition = require('./big_number/long_addition');
 var long_subtraction = require('./big_number/long_subtraction');
 var long_multiplication = require('./big_number/long_multiplication');
-var long_division = require('./big_number/long_division');
+var { long_division, long_single_division } = require('./big_number/long_division');
 
 class BigNumber 
 {
@@ -115,8 +115,9 @@ class BigNumber
         if (typeof b !== 'object') 
             b = new BigNumber(b.toString());
 
-        let c = long_division(this.r, b.r);
-        return new BigNumber(c);
+        if (b.r.data.length > 1)
+            return new BigNumber(long_division(this.r, b.r));
+        return new BigNumber(long_single_division(this.r, b.r));
     }  
 }
 
