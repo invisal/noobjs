@@ -1,4 +1,5 @@
 var { greater } = require('./comparison');
+var { trim_zeroes } = require('./utility');
 
 /**
  * Subtract two positive a and b
@@ -45,16 +46,7 @@ function long_subtraction(a, b)
         }
     }
 
-    while(c.point > 0) {
-        if (c.data[0] === 0) { c.data.shift(); c.point--; continue; }
-        else break;
-    }
-
-    while(c.data.length - c.point > 0) {
-        if (c.data[c.data.length - 1] === 0) c.data.pop();
-        else break;
-    }
-
+    trim_zeroes(c);
     return c;
 }
 

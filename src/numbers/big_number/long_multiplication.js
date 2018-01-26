@@ -1,3 +1,5 @@
+var { trim_zeroes } = require('./utility');
+
 function long_multiplication(a, b)
 {
     const BASE = 10000000;
@@ -26,6 +28,7 @@ function long_multiplication(a, b)
         carry = 0;
     }
 
+    trim_zeroes(c);
     return c;
 }
 

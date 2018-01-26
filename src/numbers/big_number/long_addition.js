@@ -1,3 +1,5 @@
+var { trim_zeroes } = require('./utility');
+
 /**
  * Add two base 10,000,000 decimal point of the same sign
  * 
@@ -36,17 +38,7 @@ function long_addition(a, b)
         }
     }
 
-    // Trimming zero
-    while(c.point > 0) {
-        if (c.data[0] === 0) { c.data.shift(); c.point--; continue; }
-        else break;
-    }
-
-    while(c.data.length - c.point > 0) {
-        if (c.data[c.data.length - 1] === 0) c.data.pop();
-        else break;
-    }
-
+    trim_zeroes(c);
     return c;
 }
 
