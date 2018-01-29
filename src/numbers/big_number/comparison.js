@@ -7,7 +7,7 @@
  * @returns {object} Returns if a > b
  */
 function greater(a, b)
-{
+{  
     // check integer part length
     let diff = (a.data.length - a.data.point) -  (b.data.length - b.data.point);
     if (diff > 0) return true;

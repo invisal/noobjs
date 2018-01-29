@@ -32,5 +32,14 @@ test('add two positive numbers', () => {
         data: [1850000 ,1031130, 7085779, 7588989, 6223334, 2154634, 23],
         point: 3,
         sign: 0
+    });
+
+    a = parse_string('9999999.99999999999999');
+    b = parse_string('0.00000000000001');
+    c = long_addition(a, b);
+    expect(c).toEqual({
+        data: [0 ,1],
+        point: 0,
+        sign: 0
     })
 });

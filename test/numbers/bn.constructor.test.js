@@ -21,7 +21,7 @@ test('test initialize big number', () => {
     expect(b.toString()).toBe('0.00000000021');
 });
 
-test('test add positive big number', () => {
+test('test add two big numbers', () => {
 
     let a, b, c;
 
@@ -29,7 +29,36 @@ test('test add positive big number', () => {
     b = new BigNumber('12099993453252674346');
     c = a.add(b);
     expect(c.toString()).toBe('12102416705895040667');
+
+    a = new BigNumber('-2423252642366321');
+    b = new BigNumber('-12099993453252674346');
+    c = a.add(b);
+    expect(c.toString()).toBe('-12102416705895040667');
     
+    a = new BigNumber('-34343699243245465124353.4345987');
+    b = new BigNumber('44356232435464545467575');
+    c = a.add(b);
+    expect(c.toString()).toBe('10012533192219080343221.5654013');
+
+    a = new BigNumber('99956533.866893225');
+    b = new BigNumber('-664547454578.9998877');
+    c = a.add(b);
+    expect(c.toString()).toBe('-664447498045.132994475');
+
+    a = new BigNumber('99956533.866893225');
+    b = new BigNumber('-99956533.866893225');
+    c = a.add(b);
+    expect(c.toString()).toBe('0');
+});
+
+test('test subtract two big numbers', () => {
+
+    let a, b, c;
+
+    a = new BigNumber('2423252642366321');
+    b = new BigNumber('12099993453252674346');
+    c = a.subtract(b);
+    expect(c.toString()).toBe('-12097570200610308025');
 });
 
 test('test multiply big number', () => {

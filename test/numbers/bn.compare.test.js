@@ -23,4 +23,8 @@ test('test greater comparison a == b', () => {
     let b = parse_string('29876687323455.001');
     expect(greater(a, b)).toBe(false);
 
+    a = parse_string('-0');
+    b = parse_string('0');
+    expect(greater(a, b)).toBe(false);
+
 });
