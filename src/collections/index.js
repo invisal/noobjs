@@ -1,7 +1,8 @@
 module.exports = {
 
-    PriorityQueue: require('./PriorityQueue.js'),
-    Queue: require('./Queue.js'),
-    Stack: require('./Stack.js')
+    PriorityQueue: require('./PriorityQueue'),
+    HashPriorityQueue: require('./HashPriorityQueue'),
+    Queue: require('./Queue'),
+    Stack: require('./Stack')
 
 }

@@ -1,6 +1,6 @@
 {
   "name": "noobjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Algorithm Toolsets for Javascript",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "algorithm"
   ],
   "author": "Visal .In",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "jest": "^22.0.6"
   },

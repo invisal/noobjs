@@ -16,10 +16,10 @@ NoobJS contains Javascript implementations of many algorithms.
 #### Math and Numbers
 | Matrix | BigNumber | Prime |
 | ---- | --- | --- |
-| ✔ Matrix Multiplication (Brute Force) | ✔ Long Addition | Primity Test (Brute Force) |
-| ✔ Matrix Transpose | Long Subtraction | Sieve of Eranthoses |
+| ✔ Matrix Multiplication (Brute Force) | ✔ Long Addition | ✔ Primity Test (Brute Force) |
+| ✔ Matrix Transpose | ✔ Long Subtraction | ✔ Sieve of Eranthoses |
 | ✔ Matrix Inverse (Gaussian Elimination) | ✔ Long Multiplication | Pollard's rho algorithm |
-|  | Long Division ||
+|  | ✔ Long Division ||
 
 #### Data Structure
 | Basic | Graph |
@@ -27,6 +27,7 @@ NoobJS contains Javascript implementations of many algorithms.
 | ✔ Queue | Depth-First Search |
 | ✔ Stack | Breadth-First search |
 | ✔ Priority Queue (Binary Heap) | Prim's algorithm |
+| ✔ Hash Priority Queue |  |
 
 ## Examples
 
