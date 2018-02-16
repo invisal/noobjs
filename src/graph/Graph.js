@@ -26,8 +26,21 @@ class Graph {
         return edge
     }
 
-    edges(u) {
+    edges(u = null) {
+        if (u === null) return this._edges;
         return this._node_edges[u.id]
+    }
+
+    edges_count() {
+        return this._edge_count;
+    }
+
+    nodes() {
+        return this._nodes;
+    }
+
+    nodes_count() {
+        return this._node_count;
     }
 
     adj(u) {
@@ -37,6 +50,23 @@ class Graph {
             nodes.push(edge.other(u))
         }
         return nodes
+    }
+
+    mst(algorithm = 'prim') 
+    {
+        if (algorithm === 'prim') {
+            let prim_mst = require('./PrimMST');
+            return prim_mst(this);
+        }
+
+        return false;
+    }
+
+    path(src, dst, algorithm = 'dfs') {
+        if (algorithm === 'dfs') {
+            let dfs = require('./DFS')
+            return dfs(this, src, dst)
+        }
     }
 }
 
