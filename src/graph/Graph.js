@@ -57,6 +57,9 @@ class Graph {
         if (algorithm === 'prim') {
             let prim_mst = require('./PrimMST');
             return prim_mst(this);
+        } else if (algorithm === 'kruskal') {
+            let kruskal_mst = require('./KruskalMST');
+            return kruskal_mst(this);
         }
 
         return false;
