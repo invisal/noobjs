@@ -22,6 +22,10 @@ function Queue() {
         return store.length;
     };
 
+    this.isEmpty = function() {
+        return store.length == 0
+    }
+
 }
 
 module.exports = Queue;
