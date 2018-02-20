@@ -22,6 +22,10 @@ function Stack() {
         return store.length;
     };
 
+    this.isEmpty = function() {
+        return store.length == 0;
+    }
+
 }
 
 module.exports = Stack;

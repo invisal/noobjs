@@ -64,6 +64,16 @@ class Graph {
 
         return false;
     }
+
+    path(src, dst, algorithm = 'dfs') {
+        if (algorithm === 'dfs') {
+            let dfs = require('./DFS')
+            return dfs(this, src, dst)
+        } else if (algorithm == 'bfs') {
+            let bfs = require('./BFS')
+            return bfs(this, src, dst)
+        }
+    }
 }
 
 module.exports = Graph
