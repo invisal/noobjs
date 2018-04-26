@@ -1,3 +1,9 @@
+function swap(a, i, k) {
+  let t = a[i];
+  a[i] = a[k];
+  a[k] = t;
+}
+
 function Hoare(a, low, high) {
   let i = low;
   let j = high + 1;
@@ -8,22 +14,20 @@ function Hoare(a, low, high) {
     while(v < a[--j]) if (j == low) break;
     if (i >= j) break;
 
-    // Swap a[i] with a[j]
-    let tmp = a[i];
-    a[i] = a[j];
-    a[j] = tmp;
+    swap(a, i, j);
   }
 
-  // Swap a[low] with a[j]
-  let tmp = a[low];
-  a[low] = a[j];
-  a[j] = tmp;
-
+  swap(a, low, j);
   return j;
 }
 
 function Lomuto(a, low, high) {
-
+  let v = a[high];
+  let i = low - 1;
+  for(let j = low; j < high; j++)
+    if (a[j] <= v) swap(a, ++i, j);
+  swap(a, ++i, high);
+  return i;
 }
 
 module.exports = {
