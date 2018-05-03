@@ -1,10 +1,7 @@
-"use strict";
-
-var KNeighborsVoting = require('../../src/ml/KNeighborsVoting');
+const KNeighborsVoting = require('../../src/ml/KNeighborsVoting');
 
 test('test k-nearest uniform voting', () => {
-
-    var voters = new KNeighborsVoting('uniform');
+    const voters = new KNeighborsVoting('uniform');
     
     expect(voters.get([0, 0, 1], [3, 4, 5])).toBe(0);
     expect(voters.get([0, 0, 1, 1, 1], [3, 4, 5, 6, 7])).toBe(1);

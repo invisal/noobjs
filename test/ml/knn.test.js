@@ -1,4 +1,4 @@
-var { ML } = require('./../../index.js');
+var KNeighborsClassifier = require('./../../src/ml/KNeighborsClassifier');
 
 test('trains and test k-nearest neighbors classifier', () => {
 
@@ -27,7 +27,7 @@ test('trains and test k-nearest neighbors classifier', () => {
 
     var y = [ 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0 ];
 
-    var knn = new ML.KNeighborsClassifier({ neighbors: 3 });
+    var knn = new KNeighborsClassifier({ neighbors: 3 });
     knn.fit(x, y);
 
     var x_ = [ [0, 2], [-2, -2], [2, 3], [-2, 4], [2, -1], [2, 0] ];

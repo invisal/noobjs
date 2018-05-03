@@ -1,4 +1,4 @@
-var { Stack } = require('../../index.js').Collections;
+var Stack = require('../../src/collections/Stack');
 
 test('test stack with small set of item', () => {
 

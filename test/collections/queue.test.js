@@ -1,4 +1,4 @@
-var { Queue } = require('../../index.js').Collections;
+var Queue = require('../../src/collections/Queue');
 
 test('test queue with small set of item', () => {
 

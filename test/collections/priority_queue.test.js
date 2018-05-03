@@ -1,4 +1,4 @@
-var { PriorityQueue } = require('../../index.js').Collections;
+var PriorityQueue = require('../../src/collections/PriorityQueue');
 
 test('test priority queue with small number of item', () => {
 
