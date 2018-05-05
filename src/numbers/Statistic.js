@@ -6,12 +6,17 @@ class Statistic
     return sum / data.length;
   }
 
-  static variance(data) {
+  static var(data, sample = true) {
+    const mean = Statistic.mean(data);
+    let sum = 0;
+    for(let i = 0; i < data.length; i++) sum += Math.pow(data[i] - mean, 2);
 
+    if (sample) return sum / (data.length - 1);
+    return sum / data.length;
   }
 
-  static standardDeviation(data) {
-
+  static std(data, sample = true) {
+    return Math.sqrt(Statistic.var(data, sample));
   }
 }
 
