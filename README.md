@@ -4,37 +4,47 @@
 
 NoobJS contains Javascript implementations of many algorithms.
 
-## Algorithms Roadmap
+### Implemented Algorithms
+
 #### Machine Learning
-| Regression | Classifier | Cluster |
-| ---- | --- | --- |
-| ✔ Linear Regression | ✔ KNN Classifier | k-mean Clustering |
-| | KNN using kd-tree | |
-| | KNN using ball-tree | |
-| | Gaussian Naive Bayes Classifier | | 
+- Linear Regression
+- KNN Classifier
 
-#### Math and Numbers
-| Matrix | BigNumber | Prime |
-| ---- | --- | --- |
-| ✔ Matrix Multiplication (Brute Force) | ✔ Long Addition | ✔ Primity Test (Brute Force) |
-| ✔ Matrix Transpose | ✔ Long Subtraction | ✔ Sieve of Eranthoses |
-| ✔ Matrix Inverse (Gaussian Elimination) | ✔ Long Multiplication | Pollard's rho algorithm |
-|  | ✔ Long Division ||
+#### Math
+- BigNumber
+- Matrix Multiplication (Brute Force)
+- Matrix Inverse (Gaussian Elimination)
 
-#### Data Structure
-| Basic | Graph |
-| ---- | --- |
-| ✔ Queue | Depth-First Search |
-| ✔ Stack | Breadth-First search |
-| ✔ Priority Queue (Binary Heap) | Prim's algorithm |
-| ✔ Hash Priority Queue |  |
+#### Elementary Data Structure
+- Disjoint Set
+- Queue
+- Stack
+- Priority Queue (Binary Heap)
+- Hash Priority Queue
+
+#### Graph
+- Graph Data Structure
+- Prim's algorithm
+- Kruskal's algorithm
+- Breadth-first search
+- Depth-first search
+
+#### Random Number
+- Linear Congruential Generator
+- Marsaglia Polar Method
+
+#### Other
+- QuickSelect
+- Partition (Lomuto & Hoare)
+- Fisher Yates Shuffle
+- Sieve of Eratosthenes
 
 ## Examples
 
 Using Linear Regression
 
 ```javascript
-var { LinearRegression } = require('noobjs').ML;
+var { LinearRegression } = require('noobjs');
 
 var x = [ 
     [0.17], [2.47], [1.73], [4.43], [4.51], 
@@ -56,7 +66,7 @@ console.log( model.predict( [ [4.0], [2.0], [1.5] ] ) );
 Using Elementary Data Structures
 
 ```javascript
-var { PriorityQueue, Stack, Queue } = require('noobjs').Collections;
+var { PriorityQueue, Stack, Queue } = require('noobjs');
 
 var p = new PriorityQueue();
 p.push(7);
@@ -71,7 +81,7 @@ console.log(p.pop());  // 8
 Using NoobJS to solve linear system of equations
 
 ```javascript
-var { LinearAlgebra } = noobjs.Numbers;
+var { LinearAlgebra } = noobjs;
 
 //  x + 2y -  z = 2
 // 2x + 2y + 2z = 12
