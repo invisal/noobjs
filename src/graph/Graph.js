@@ -18,7 +18,7 @@ class Graph {
         return node
     }
 
-    connect(u, v, cost) {
+    connect(u, v, cost = 1) {
         let edge = new GraphEdge(this._edge_count++, u, v, cost)
         this._edges.push(edge)
         this._node_edges[u.id].push(edge)
@@ -63,6 +63,12 @@ class Graph {
         }
 
         return false;
+    }
+
+    color()
+    {
+        let coloring = require('./GreedyColor');
+        return coloring(this)
     }
 
     path(src, dst, algorithm = 'dfs') {
