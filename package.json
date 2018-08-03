@@ -9,6 +9,9 @@
   "keywords": [
     "algorithm"
   ],
+  "jest": {
+    "testEnvironment": "node"
+  },
   "author": "Visal .In",
   "license": "MIT",
   "devDependencies": {
