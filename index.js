@@ -16,4 +16,6 @@ module.exports = {
 
   FisherYatesShuffle: require('./src/other/FisherYatesShuffle'),
   Partition: require('./src/other/Partition'),
+
+  Graph: require('./src/graph/Graph'),
 }
