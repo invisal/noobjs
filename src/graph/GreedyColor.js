@@ -1,4 +1,4 @@
-function GreedyColor(g) {
+function GreedyColor(g, { recolor = true } = {}) {
   let nodes = [...g.nodes()];
   
   // Sorting the nodes with the largest number of edges first
@@ -7,14 +7,22 @@ function GreedyColor(g) {
   });
 
   // Turn all the color to null
+  let max_color = 1;
   for(let i = 0; i < nodes.length; i++) {
-    nodes[i].color = -1;
+    if (recolor) {
+      nodes[i].color = -1;
+    } else {
+      nodes[i].color = nodes[i].color || -1;
+      if (nodes[i].color >= max_color) max_color++;
+    }
   }
 
   // Greedy coloring
-  let max_color = 1;
-  let mex = [ false, false ];
+  let mex = new Array(max_color + 1).fill(false);
+
   for(let i = 0; i < nodes.length; i++) {
+    if (nodes[i].color >= 0) continue;
+
     // reset the mex (Minimum excludant)
     for(let j = 0; j <= max_color; j++) mex[j] = false;
 

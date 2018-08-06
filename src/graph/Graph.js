@@ -2,7 +2,6 @@ var GraphNode = require('./GraphNode')
 var GraphEdge = require('./GraphEdge')
 
 class Graph {
-
     constructor() {
         this._node_count = 0
         this._edge_count = 0
@@ -19,6 +18,15 @@ class Graph {
     }
 
     connect(u, v, cost = 1) {
+        // check if u and v is already connected
+        let u_edges = this._node_edges[u.id];
+        for(let i = 0; i < u_edges.length; i++) {
+            if (u_edges[i].u.id === v.id || u_edges[i].v.id === v.id) {
+                u_edges[i].cost = cost;
+                return u_edges[i];
+            }
+        }
+
         let edge = new GraphEdge(this._edge_count++, u, v, cost)
         this._edges.push(edge)
         this._node_edges[u.id].push(edge)
@@ -65,10 +73,10 @@ class Graph {
         return false;
     }
 
-    color()
+    color(options)
     {
         let coloring = require('./GreedyColor');
-        return coloring(this)
+        return coloring(this, options)
     }
 
     path(src, dst, algorithm = 'dfs') {

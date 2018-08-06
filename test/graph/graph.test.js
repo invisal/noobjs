@@ -7,8 +7,9 @@ test('test graph', () => {
     let v = g.create_node('banana')
     let w = g.create_node('cat')
 
-    g.connect(u, v, 10)
+    g.connect(u, v, 5)
     g.connect(u, w, 15)
+    g.connect(v, u, 10);
 
     // Edges Length
     expect(g.edges(u).length).toEqual(2)

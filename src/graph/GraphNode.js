@@ -3,6 +3,7 @@ class GraphNode {
         this.graph = graph;
         this.id = id;
         this.obj = obj;
+        this.color = -1;
     }
 }
 
