@@ -4,7 +4,8 @@
   "description": "Algorithm Toolsets for Javascript",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "bundle": "browserify index.js --standalone noobjs > bundle/noobjs.js"
   },
   "keywords": [
     "algorithm"
@@ -15,7 +16,9 @@
   "author": "Visal .In",
   "license": "MIT",
   "devDependencies": {
-    "jest": "^22.0.6"
+    "browserify": "^16.2.2",
+    "jest": "^22.0.6",
+    "npm": "^6.3.0"
   },
   "dependencies": {}
 }
