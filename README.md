@@ -7,27 +7,28 @@ NoobJS contains Javascript implementations of many algorithms.
 ### Implemented Algorithms
 
 #### Machine Learning
-- Linear Regression
-- KNN Classifier
+- [Linear Regression](https://github.com/invisal/noobjs/wiki/Linear-Regression)
+- [KNN Classifier](https://github.com/invisal/noobjs/wiki/Nearest-Neighbors-Classifier)
+
+#### Graph
+- [Graph Data Structure](https://github.com/invisal/noobjs/wiki/Graph)
+- Prim's algorithm
+- Kruskal's algorithm
+- Breadth-first search
+- Depth-first search
+- [Graph Coloring using Greedy](https://github.com/invisal/noobjs/wiki/Graph-Coloring)
 
 #### Math
-- BigNumber
+- [BigNumber](https://github.com/invisal/noobjs/wiki/Big-Number)
 - Matrix Multiplication (Brute Force)
-- Matrix Inverse (Gaussian Elimination)
+- [Matrix Inverse (Gaussian Elimination)](https://github.com/invisal/noobjs/wiki/Linear-Algebra#matrix-inverse)
 
 #### Elementary Data Structure
 - Disjoint Set
 - Queue
 - Stack
-- Priority Queue (Binary Heap)
+- [Priority Queue (Binary Heap)](https://github.com/invisal/noobjs/wiki/Priority-Queue)
 - Hash Priority Queue
-
-#### Graph
-- Graph Data Structure
-- Prim's algorithm
-- Kruskal's algorithm
-- Breadth-first search
-- Depth-first search
 
 #### Random Number
 - Linear Congruential Generator
@@ -44,7 +45,7 @@ NoobJS contains Javascript implementations of many algorithms.
 Using Linear Regression
 
 ```javascript
-var { LinearRegression } = require('noobjs');
+var { LinearRegression } = noobjs;
 
 var x = [ 
     [0.17], [2.47], [1.73], [4.43], [4.51], 
@@ -66,7 +67,7 @@ console.log( model.predict( [ [4.0], [2.0], [1.5] ] ) );
 Using Elementary Data Structures
 
 ```javascript
-var { PriorityQueue, Stack, Queue } = require('noobjs');
+var { PriorityQueue, Stack, Queue } = noobjs;
 
 var p = new PriorityQueue();
 p.push(7);
