@@ -23,7 +23,7 @@ class LinearCongruentialGenerator
   }
 
   nextRange(min, max) {
-    return min + next() % (max - min + 1);
+    return min + this.next() % (max - min + 1);
   }
 }
 
