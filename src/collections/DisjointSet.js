@@ -11,7 +11,13 @@ class DisjointSet {
   }
 
   find (p) {
-    if (p !== this._id[p]) p = this.find(this._id[p])
+    if (p !== this._id[p]) {
+      let root = this.find(this._id[p]);
+
+      // path compression
+      this._id[p] = root;
+      p = root;
+    }
     return p
   }
 
