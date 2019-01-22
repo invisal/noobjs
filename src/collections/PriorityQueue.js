@@ -3,6 +3,7 @@ function PriorityQueue(cmp = null)
 
     // private members
     var store = [ false ];
+    this.store = store;
 
     // constructor
     if (cmp === null) {

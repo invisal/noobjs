@@ -58,3 +58,19 @@ test('ball tree - building the tree', () => {
   expect(tree.right.right.points).toEqual([ [3, 7, 0], [6, 5, 1] ]);
 
 });
+
+test('ball tree - knn query', () => {
+
+  let x = [
+    [1, 2, 1],
+    [2, 3, 1],
+    [3, 7, 0],
+    [2, 4, 0],
+    [3, 0, 1],
+    [6, 5, 1],
+  ];
+
+  let tree = new BallTree({ points: x, leaf_size: 2, dimension: 2 });
+  let q = tree.get([1, 1], 3);
+
+});

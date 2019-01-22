@@ -30,6 +30,9 @@ NoobJS contains Javascript implementations of many algorithms.
 - [Priority Queue (Binary Heap)](https://github.com/invisal/noobjs/wiki/Priority-Queue)
 - Hash Priority Queue
 
+#### Tree
+- Ball Tree
+
 #### Random Number
 - Linear Congruential Generator
 - Marsaglia Polar Method

@@ -1,11 +1,12 @@
 "use strict"
 
 var KNeighborsBruteSelector = require('./KNeighborsBruteSelector');
+var KNeighborsBallTreeSelector = require('./KNeighborsBallTreeSelector');
 var KNeighborsVoting = require('./KNeighborsVoting');
 
 function KNeighborsClassifier({
     neighbors = 5,
-    algorithm = "brute",
+    algorithm = "brute", // brute | ball
     weights = "uniform"
 } = {}) {
     
@@ -15,7 +16,12 @@ function KNeighborsClassifier({
 
     // public methods
     this.fit = function(x, y) {
-        selector = new KNeighborsBruteSelector(x, y);
+        if (algorithm === "ball") {
+            selector = new KNeighborsBallTreeSelector(x, y);
+        } else {
+            selector = new KNeighborsBruteSelector(x, y);
+        }
+        
         voter = new KNeighborsVoting(weights);
     };
 

@@ -1,3 +1,5 @@
+const PriorityQueue = require('./../collections/PriorityQueue');
+
 class BallTree {
     constructor({ points, leaf_size = 8, dimension = -1 } = {})
     {
@@ -9,6 +11,7 @@ class BallTree {
         // If dimension is not set, we use the dimension of
         // the point.
         if (dimension <= 0) dimension = points[0].length;
+        this.dimension = dimension;
 
         // It is a leaf, no need to divide into
         // more sub ball tree
@@ -32,6 +35,39 @@ class BallTree {
             points: points.slice(points.length >> 1),
             leaf_size, dimension
         });
+    }
+
+    get(target, k) {
+        let q = new PriorityQueue((a, b) => a.distance > b.distance);
+        this.getWithPR(target, k, q);
+        return q;
+    }
+
+    getWithPR(target, k, q) {
+        // Ignore this tree if it is impossible to find any point that
+        // is nearer than current points in the priority queue
+        if (q.size() >= k) {
+            let distanceFromCenter = BallTree.distance(target, this.center, this.dimension);
+            if (distanceFromCenter - this.radius > q.top().distance) return;
+        }
+        
+        if (!this.is_leaf) {
+            this.left.getWithPR(target, k, q);
+            this.right.getWithPR(target, k, q);
+            return;
+        }
+
+        for (let i = 0; i < this.points.length; i++) {
+            let p = this.points[i];
+            let dist = BallTree.distance(target, p, this.dimension);
+            
+            if (k > q.size()) q.push({ distance: dist, point: p });
+            else if (q.top().distance > dist) {
+                q.push({ distance: dist, point: p });
+                q.pop();
+            }
+
+        }
     }
 
     static findMaxDimensionSpread(points, dimension) {
