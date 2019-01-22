@@ -18,4 +18,6 @@ module.exports = {
   Partition: require('./src/other/Partition'),
 
   Graph: require('./src/graph/Graph'),
+
+  BallTree: require('./src/tree/BallTree'),
 }
