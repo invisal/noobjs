@@ -10,7 +10,7 @@ function KNeighborsBruteSelector(x, y)
         for(var i = 0; i < p.length; i++) {
             sum += Math.pow(p[i] - q[i], 2);
         }
-        return sum;
+        return Math.sqrt(sum);
     }
 
     function greater(a, b) {
