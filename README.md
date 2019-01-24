@@ -9,13 +9,14 @@ NoobJS contains Javascript implementations of many algorithms.
 #### Machine Learning
 - [Linear Regression](https://github.com/invisal/noobjs/wiki/Linear-Regression)
 - [KNN Classifier](https://github.com/invisal/noobjs/wiki/Nearest-Neighbors-Classifier)
+- [KMean Clustering](https://github.com/invisal/noobjs/wiki/KMean-Clustering)
 
 #### Graph
 - [Graph Data Structure](https://github.com/invisal/noobjs/wiki/Graph)
-- Prim's algorithm
-- Kruskal's algorithm
-- Breadth-first search
-- Depth-first search
+- [Prim's algorithm](https://github.com/invisal/noobjs/wiki/Graph)
+- [Kruskal's algorithm](https://github.com/invisal/noobjs/wiki/Graph)
+- [Breadth-first search](https://github.com/invisal/noobjs/wiki/Graph)
+- [Depth-first search](https://github.com/invisal/noobjs/wiki/Graph)
 - [Graph Coloring using Greedy](https://github.com/invisal/noobjs/wiki/Graph-Coloring)
 
 #### Math
@@ -24,14 +25,14 @@ NoobJS contains Javascript implementations of many algorithms.
 - [Matrix Inverse (Gaussian Elimination)](https://github.com/invisal/noobjs/wiki/Linear-Algebra#matrix-inverse)
 
 #### Elementary Data Structure
-- Disjoint Set
+- [Disjoint Set](https://github.com/invisal/noobjs/wiki/Disjoint-Set)
 - Queue
 - Stack
 - [Priority Queue (Binary Heap)](https://github.com/invisal/noobjs/wiki/Priority-Queue)
 - Hash Priority Queue
 
 #### Tree
-- Ball Tree
+- [Ball Tree](https://github.com/invisal/noobjs/wiki/Ball-Tree)
 
 #### Random Number
 - Linear Congruential Generator
